@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">nivit-ExpBook</string>
+    <string name="total_monthly_charge">Total Monthly Charge: %s CAD</string>
+
+</resources>

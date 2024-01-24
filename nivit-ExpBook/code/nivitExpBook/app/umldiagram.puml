@@ -1,0 +1,41 @@
+@startuml MainActivity
+class MainActivity {
+    -ListView listView
+    -ExpenseAdapter expenseAdapter
+    -ArrayList<Expense> expenses
+    -TextView totalChargeTextView
+
+    +onCreate(savedInstanceState: Bundle)
+    +onActivityResult(requestCode: int, resultCode: int, data: Intent)
+    -isValidMonthFormat(month: String): boolean
+    +showAddExpenseDialog()
+    +updateTotalMonthlyCharge()
+}
+
+class ExpenseAdapter {
+    +ExpenseAdapter(context: Context, expenses: ArrayList<Expense>)
+    +getView(position: int, convertView: View, parent: ViewGroup): View
+}
+
+class Expense {
+    -String name
+    -String month
+    -double monthlyCharge
+    -String comment
+
+    +Expense(name: String, month: String, monthlyCharge: double, comment: String)
+    +getName(): String
+    +setName(name: String)
+    +getMonth(): String
+    +setMonth(month: String)
+    +getMonthlyCharge(): double
+    +setMonthlyCharge(monthlyCharge: double)
+    +getComment(): String
+    +setComment(comment: String)
+}
+
+MainActivity --|> AppCompatActivity
+ExpenseAdapter --|> ArrayAdapter
+Expense --|> Serializable
+
+@enduml
